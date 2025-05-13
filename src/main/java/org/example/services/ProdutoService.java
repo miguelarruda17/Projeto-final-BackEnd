@@ -33,6 +33,7 @@ public class ProdutoService {
         if (optionalProduto.isPresent()) {
             Produto produtoSistema = optionalProduto.get();
             produtoSistema.setProNome(produto.getProNome());
+            produtoSistema.setProDescricao(produto.getProDescricao());
             produtoSistema.setProPrecoCusto(produto.getProPrecoCusto());
             produtoSistema.setProPrecoVenda(produto.getProPrecoVenda());
             repository.save(produtoSistema);
