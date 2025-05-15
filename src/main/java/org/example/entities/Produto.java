@@ -40,8 +40,7 @@ public class Produto implements Serializable {
     private String proUnidadeMedida; // Ex: "Litro"
 
     @Column(name = "PRO_STATUS")
-    @Enumerated(EnumType.STRING)  // Usar Enum para controle de status
-    private Status proStatus = Status.DISPONIVEL; // Ex: Status.ATIVO
+    private String proStatus;
 
     @Column(name = "PRO_DATA_CADASTRO")
     private LocalDateTime proDataCadastro; // Ex: LocalDateTime.now()
@@ -53,7 +52,7 @@ public class Produto implements Serializable {
     }
 
     public Produto(Long proId, String proNome, String proDescricao, Double proPrecoCusto, Double proPrecoVenda, Integer proQuantidadeEstoque, String proCategoria,
-                   String proCodigoBarras, String proMarca, String proUnidadeMedida,Status proStatus) {
+                   String proCodigoBarras, String proMarca, String proUnidadeMedida,String proStatus) {
 
         this.proId = proId;
         this.proNome = proNome;
@@ -133,11 +132,11 @@ public class Produto implements Serializable {
         this.proUnidadeMedida = proUnidadeMedida;
     }
 
-    public Status getProStatus() {
+    public String getProStatus() {
         return proStatus;
     }
 
-    public void setProStatus(Status proStatus) {
+    public void setProStatus(String proStatus) {
         this.proStatus = proStatus;
     }
 
