@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Entity
@@ -11,18 +12,20 @@ public class FormaPagamento  implements Serializable {
     @Column(name = "FPG_ID")
     private Long fpgId;
 
-    @Column(name = "FPG_DESCRICAO")
-    private String fpgDescricao;
+    @NotBlank(message = "Formato é obrigatório.")
+    @Column(name = "FPG_FORMATO")
+    private String fpgFormato;
 
+    @NotBlank(message = "Tipo é Obrigatório")
     @Column(name = "FPG_TIPO")
     private String fpgTipo;
 
     public FormaPagamento() {
     }
 
-    public FormaPagamento(Long fpgId, String fpgDescricao, String fpgTipo) {
+    public FormaPagamento(Long fpgId, String fpgFormato, String fpgTipo) {
         this.fpgId = fpgId;
-        this.fpgDescricao = fpgDescricao;
+        this.fpgFormato = fpgFormato;
         this.fpgTipo = fpgTipo;
     }
 
@@ -34,12 +37,12 @@ public class FormaPagamento  implements Serializable {
         this.fpgId = fpgId;
     }
 
-    public String getFpgDescricao() {
-        return fpgDescricao;
+    public String getFpgFormato() {
+        return fpgFormato;
     }
 
-    public void setFpgDescricao(String fpgDescricao) {
-        this.fpgDescricao = fpgDescricao;
+    public void setFpgFormato(String fpgFormato) {
+        this.fpgFormato = fpgFormato;
     }
 
     public String getFpgTipo() {

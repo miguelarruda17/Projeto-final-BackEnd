@@ -33,7 +33,7 @@ public class FormaPagamentoService {
         Optional<FormaPagamento> optionalFormaPagamento = repository.findById(id);
         if (optionalFormaPagamento.isPresent()) {
             FormaPagamento formaPagamentoSistema = optionalFormaPagamento.get();
-            formaPagamentoSistema.setFpgDescricao(formaPagamento.getFpgDescricao());
+            formaPagamentoSistema.setFpgFormato(formaPagamento.getFpgFormato());
             formaPagamentoSistema.setFpgTipo(formaPagamento.getFpgTipo());
             repository.save(formaPagamentoSistema);
             return true;
