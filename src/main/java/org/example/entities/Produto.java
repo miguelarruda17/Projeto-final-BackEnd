@@ -156,10 +156,4 @@ public class Produto implements Serializable {
         this.proDataAtualizacao = proDataAtualizacao;
     }
 
-
-    public enum Status {
-        DISPONIVEL,
-        INDISPONIVEL
-    }
-
 }
