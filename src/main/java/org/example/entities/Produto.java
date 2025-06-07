@@ -1,6 +1,8 @@
 package org.example.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -12,36 +14,48 @@ public class Produto implements Serializable {
     @Column(name = "PRO_ID")
     private Long proId;
 
+    @NotBlank(message = "Nome é obrigatório.")
     @Column(name = "PRO_NOME")
     private String proNome;
 
+    @NotBlank(message = "Descrição é obrigatório.")
     @Column(name = "PRO_DESCRICAO")
     private String proDescricao;
 
+    @NotBlank(message = "Preço de custo é obrigatório.")
     @Column(name = "PRO_PRECO_CUSTO", precision = 10, scale = 2)
     private Double proPrecoCusto;
 
+    @NotBlank(message = "Preço de venda é obrigatório.")
     @Column(name = "PRO_PRECO_VENDA", precision = 10, scale = 2)
     private Double proPrecoVenda;
 
+    @NotBlank(message = "Estoque é obrigatório.")
     @Column(name = "PRO_QUANT_ESTOQUE")
     private Integer proQuantidadeEstoque; // Ex: 120
 
+    @NotBlank(message = "Categoria é obrigatório.")
     @Column(name = "PRO_CATEGORIA")
     private String proCategoria; // Ex: "Bebidas"
 
+    @NotBlank(message = "Código de barras é obrigatório.")
+    @Size(max = 12, message = "Código de barras deve ter no máximo 12 caracteres.")
     @Column(name = "PRO_COD_BARRAS")
-    private String proCodigoBarras; // Ex: "7894900011517"
+    private String proCodigoBarras; //* Ex: "7894900011517"
 
+    @NotBlank(message = "Marca é obrigatório.")
     @Column(name = "PRO_MARCA")
     private String proMarca; // Ex: "Coca-Cola"
 
+    @NotBlank(message = "Unidade de medida é obrigatório.")
     @Column(name = "PRO_UNID_MEDIDA")
     private String proUnidadeMedida; // Ex: "Litro"
 
+    @NotBlank(message = "Status é obrigatório.")
     @Column(name = "PRO_STATUS")
     private String proStatus;
 
+    @NotBlank(message = "Data de cadastro é obrigatório.")
     @Column(name = "PRO_DATA_CADASTRO")
     private LocalDateTime proDataCadastro; // Ex: LocalDateTime.now()
 
