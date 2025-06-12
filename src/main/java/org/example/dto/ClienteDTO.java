@@ -9,8 +9,6 @@ public class ClienteDTO {
     private Long cliId;
     private String cliNome;
     private String cliCpf;
-    private String cliEmail;
-    private String cliTelefone;
     //ENDEREÇO
     private String endRua;
     private String endNumero;
@@ -25,8 +23,6 @@ public class ClienteDTO {
     //Construtor Vazio
     public ClienteDTO() {  }
 
-    //GETTERS E SETTERS
-    //Cliente//
     public Long getCliId() {
         return cliId;
     }
@@ -51,24 +47,6 @@ public class ClienteDTO {
         this.cliCpf = cliCpf;
     }
 
-    public String getCliEmail() {
-        return cliEmail;
-    }
-
-    public void setCliEmail(String cliEmail) {
-        this.cliEmail = cliEmail;
-    }
-
-    public String getCliTelefone() {
-        return cliTelefone;
-    }
-
-    public void setCliTelefone(String cliTelefone) {
-        this.cliTelefone = cliTelefone;
-    }
-    //Cliente//
-    //---------//
-    //Endereço//
     public String getEndRua() {
         return endRua;
     }
@@ -108,9 +86,7 @@ public class ClienteDTO {
     public void setEndEstado(String endEstado) {
         this.endEstado = endEstado;
     }
-    //Endereço//
-    //--------//
-    //Contato//
+
     public String getConCelular() {
         return conCelular;
     }
@@ -134,6 +110,4 @@ public class ClienteDTO {
     public void setConEmail(String conEmail) {
         this.conEmail = conEmail;
     }
-    //Contato//
-
 }

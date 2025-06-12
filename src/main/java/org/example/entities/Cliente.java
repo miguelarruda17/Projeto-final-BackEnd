@@ -41,7 +41,6 @@ public class Cliente implements Serializable {
         this.cliId = cliId;
         this.cliNome = cliNome;
         this.cliCpf = cliCpf;
-
     }
 
     public Long getCliId() {
