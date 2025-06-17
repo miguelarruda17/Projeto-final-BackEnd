@@ -14,39 +14,5 @@ import java.util.List;
 @RequestMapping(value = "/fornecedor")
 public class FornecedorResource {
 
-    @Autowired
-    private FornecedorService fornecedorService;
 
-    @GetMapping
-    public ResponseEntity<List<Fornecedor>> getAll() {
-        List<Fornecedor> fornecedores = fornecedorService.getAll();
-        return ResponseEntity.ok(fornecedores);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Fornecedor> findById(@PathVariable Long id) {
-        Fornecedor obj = fornecedorService.findById(id);
-        return ResponseEntity.ok().body(obj);
-    }
-
-    @PostMapping
-    public ResponseEntity<Fornecedor> insert(@RequestBody Fornecedor fornecedor) {
-        Fornecedor createdFornecedor = fornecedorService.insert(fornecedor);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdFornecedor);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Fornecedor fornecedor) {
-        if (fornecedorService.update(id, fornecedor)) {
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
-        fornecedorService.delete(id);
-        return ResponseEntity.noContent().build();
-    }
 }

@@ -1,7 +1,5 @@
 package org.example.entities;
 
-import org.hibernate.validator.constraints.br.CPF;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -22,24 +20,34 @@ public class Fornecedor implements Serializable {
     @Column(name = "FOR_NOME_FANTASIA", nullable = false, length = 100)
     private String forNomeFantasia;
 
-    @NotBlank(message = "CNPJ é obrigatório.")
-    @CPF(message = "CNPJ inválido.")
-    @Column(name = "FOR_CNPJ", nullable = false, unique = true, length = 18)
-    private String forCnpj;
-
     @NotBlank(message = "Razão social é obrigatório.")
     @Size(max = 100, message = "Razão social deve ter no máximo 100 caracteres.")
     @Column(name = "FOR_RAZAO_SOCIAL", nullable = false, length = 100)
     private String forRazaoSocial;
 
+    @NotBlank(message = "CNPJ é obrigatório.")
+    @Column(name = "FOR_CNPJ", nullable = false, unique = true, length = 18)
+    private String forCnpj;
+
+    @NotBlank(message = "Razão social é obrigatório.")
+    @Column(name = "FOR_STATUS", nullable = false)
+    private String forStatus;
+
+    @OneToMany(mappedBy = "conFornecedor", cascade = CascadeType.ALL)
+    private List<Contato> Contatos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "endFornecedor", cascade = CascadeType.ALL)
+    private List<Endereco> Enderecos = new ArrayList<>();
+
     public Fornecedor() {
     }
 
-    public Fornecedor(Long forId, String forNome, String forNomeFantasia, String forCnpj, String forRazaoSocial) {
+    public Fornecedor(Long forId, String forNomeFantasia, String forRazaoSocial, String forCnpj, String forStatus) {
         this.forId = forId;
         this.forNomeFantasia = forNomeFantasia;
-        this.forCnpj = forCnpj;
         this.forRazaoSocial = forRazaoSocial;
+        this.forCnpj = forCnpj;
+        this.forStatus = forStatus;
     }
 
     public Long getForId() {
@@ -58,14 +66,6 @@ public class Fornecedor implements Serializable {
         this.forNomeFantasia = forNomeFantasia;
     }
 
-    public String getForCnpj() {
-        return forCnpj;
-    }
-
-    public void setForCnpj(String forCnpj) {
-        this.forCnpj = forCnpj;
-    }
-
     public String getForRazaoSocial() {
         return forRazaoSocial;
     }
@@ -74,4 +74,35 @@ public class Fornecedor implements Serializable {
         this.forRazaoSocial = forRazaoSocial;
     }
 
+    public String getForCnpj() {
+        return forCnpj;
+    }
+
+    public void setForCnpj(String forCnpj) {
+        this.forCnpj = forCnpj;
+    }
+
+    public String getForStatus() {
+        return forStatus;
+    }
+
+    public void setForStatus(String forStatus) {
+        this.forStatus = forStatus;
+    }
+
+    public List<Contato> getContatos() {
+        return Contatos;
+    }
+
+    public void setForContatos(List<Contato> Contatos) {
+        this.Contatos = Contatos;
+    }
+
+    public List<Endereco> getEnderecos() {
+        return Enderecos;
+    }
+
+    public void setForEnderecos(List<Endereco> Enderecos) {
+        this.Enderecos = Enderecos;
+    }
 }

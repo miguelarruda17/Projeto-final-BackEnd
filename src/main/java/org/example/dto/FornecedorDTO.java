@@ -1,14 +1,17 @@
 package org.example.dto;
 
-import org.hibernate.validator.constraints.br.CPF;
+import org.hibernate.validator.constraints.br.CNPJ;
 
-public class ClienteDTO {
+public class FornecedorDTO {
 
-    //CLIENTE
-    private Long cliId;
-    private String cliNome;
-    @CPF(message = "CPF inválido.")
-    private String cliCpf;
+    //FORNECEDOR//
+    private Long forId;
+    private String forNomeFantasia;
+    private String forRazaoSocial;
+    @CNPJ(message = "CNPJ inválido.")
+    private String forCnpj;
+
+    private String forStatus;
     //CONTATO
     private String conCelular;
     private String conTelefoneComercial;
@@ -20,34 +23,50 @@ public class ClienteDTO {
     private String endCep;
     private String endEstado;
 
+    //CONSTRUTOR VAZIO//
+    public FornecedorDTO() {  }
 
-    //Construtor Vazio
-    public ClienteDTO() {  }
+    //SETTERS e GETTER//
 
 
-    //SETTERS e GETTERS//
-    public Long getCliId() {
-        return cliId;
+    public Long getForId() {
+        return forId;
     }
 
-    public void setCliId(Long cliId) {
-        this.cliId = cliId;
+    public void setForId(Long forId) {
+        this.forId = forId;
     }
 
-    public String getCliNome() {
-        return cliNome;
+    public String getForNomeFantasia() {
+        return forNomeFantasia;
     }
 
-    public void setCliNome(String cliNome) {
-        this.cliNome = cliNome;
+    public void setForNomeFantasia(String forNomeFantasia) {
+        this.forNomeFantasia = forNomeFantasia;
     }
 
-    public String getCliCpf() {
-        return cliCpf;
+    public String getForRazaoSocial() {
+        return forRazaoSocial;
     }
 
-    public void setCliCpf(String cliCpf) {
-        this.cliCpf = cliCpf;
+    public void setForRazaoSocial(String forRazaoSocial) {
+        this.forRazaoSocial = forRazaoSocial;
+    }
+
+    public String getForCnpj() {
+        return forCnpj;
+    }
+
+    public void setForCnpj(String forCnpj) {
+        this.forCnpj = forCnpj;
+    }
+
+    public String getForStatus() {
+        return forStatus;
+    }
+
+    public void setForStatus(String forStatus) {
+        this.forStatus = forStatus;
     }
 
     public String getConCelular() {
@@ -113,4 +132,5 @@ public class ClienteDTO {
     public void setEndEstado(String endEstado) {
         this.endEstado = endEstado;
     }
+
 }

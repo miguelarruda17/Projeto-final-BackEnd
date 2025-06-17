@@ -98,15 +98,15 @@ public class ClienteService {
     public Cliente fromDTO(ClienteDTO objDTO) {
         Cliente cliente = new Cliente(null, objDTO.getCliNome(), objDTO.getCliCpf());
 
-        Endereco ender = new Endereco(null, cliente, objDTO.getEndRua(), objDTO.getEndNumero(),
-                objDTO.getEndCidade(), objDTO.getEndCep(),
-                objDTO.getEndEstado());
-
         Contato contato = new Contato(null, cliente, objDTO.getConCelular(), objDTO.getConTelefoneComercial(),
                 objDTO.getConEmail());
 
-        cliente.getEnderecos().add(ender);
+        Endereco endereco = new Endereco(null, cliente, objDTO.getEndRua(), objDTO.getEndNumero(),
+                objDTO.getEndCidade(), objDTO.getEndCep(),
+                objDTO.getEndEstado());
+
         cliente.getContatos().add(contato);
+        cliente.getEnderecos().add(endereco);
 
         return cliente;
     }
