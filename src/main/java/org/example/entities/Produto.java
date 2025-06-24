@@ -35,13 +35,18 @@ public class Produto implements Serializable {
     private Integer proQuantidadeEstoque; // Ex: 120
 
     @NotBlank(message = "Categoria é obrigatório.")
-    @Column(name = "PRO_CATEGORIA")
+    @Column(name = "PRO_CATEGORA")
     private String proCategoria; // Ex: "Bebidas"
 
     @NotBlank(message = "Código de barras é obrigatório.")
     @Size(max = 12, message = "Código de barras deve ter no máximo 12 caracteres.")
     @Column(name = "PRO_COD_BARRAS")
     private String proCodigoBarras; //* Ex: "7894900011517"
+
+    @NotBlank(message = "Fornecedor é obrigatório.")
+    @ManyToOne
+    @JoinColumn(name = "FORNECEDOR_ID", nullable = false)
+    private Fornecedor fornecedor;
 
     @NotBlank(message = "Marca é obrigatório.")
     @Column(name = "PRO_MARCA")
@@ -66,7 +71,7 @@ public class Produto implements Serializable {
     }
 
     public Produto(Long proId, String proNome, String proDescricao, Double proPrecoCusto, Double proPrecoVenda, Integer proQuantidadeEstoque, String proCategoria,
-                   String proCodigoBarras, String proMarca, String proUnidadeMedida,String proStatus) {
+                   String proCodigoBarras, Fornecedor fornecedor, String proMarca, String proUnidadeMedida,String proStatus) {
 
         this.proId = proId;
         this.proNome = proNome;
@@ -76,6 +81,7 @@ public class Produto implements Serializable {
         this.proQuantidadeEstoque = proQuantidadeEstoque;
         this.proCategoria = proCategoria;
         this.proCodigoBarras = proCodigoBarras;
+        this.fornecedor = fornecedor;
         this.proMarca = proMarca;
         this.proUnidadeMedida = proUnidadeMedida;
         this.proStatus = proStatus;
@@ -129,6 +135,10 @@ public class Produto implements Serializable {
     public void setProCodigoBarras(String proCodigoBarras) {
         this.proCodigoBarras = proCodigoBarras;
     }
+
+    public Fornecedor getFornecedor() { return fornecedor; }
+
+    public void setFornecedor(Fornecedor fornecedor) { this.fornecedor = fornecedor; }
 
     public String getProMarca() {
         return proMarca;

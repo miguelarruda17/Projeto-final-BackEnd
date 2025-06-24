@@ -87,7 +87,7 @@ public class ClienteService {
 
     }
 
-    public void deleteCliente(Long id) {
+    public void delete(Long id) {
         try {
             clienteRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {

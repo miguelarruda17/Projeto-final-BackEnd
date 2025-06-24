@@ -89,7 +89,7 @@ public class FornecedorService {
 
     }
 
-    public void deleteFornecedor(Long id) {
+    public void delete(Long id) {
         try {
             fornecedorRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
