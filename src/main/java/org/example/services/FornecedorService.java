@@ -39,20 +39,11 @@ public class FornecedorService {
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
-    public Fornecedor insert(Fornecedor obj) {
+    public Fornecedor insert(FornecedorDTO obj) {
 
-        try {
+        Fornecedor fornecedor = fromDTO(obj);
+        return fornecedorRepository.save(fornecedor);
 
-            obj.setForId(null);
-            obj = fornecedorRepository.save(obj);
-            contatoRepository.saveAll(obj.getContatos());
-            enderecoRepository.saveAll(obj.getEnderecos());
-
-            return obj;
-        } catch (DataIntegrityViolationException e) {
-
-            throw new ValueBigForAtributeException(e.getMessage());
-        }
     }
 
     public Fornecedor update(Long id, FornecedorDTO objDTO) {
