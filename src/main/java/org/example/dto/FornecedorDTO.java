@@ -10,7 +10,6 @@ public class FornecedorDTO {
     private String forRazaoSocial;
     @CNPJ(message = "CNPJ inválido.")
     private String forCnpj;
-
     private String forStatus;
     //CONTATO
     private String conCelular;
