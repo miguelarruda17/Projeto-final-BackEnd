@@ -23,10 +23,10 @@ public class Contato implements Serializable {
     @JoinColumn(name = "CON_FO_ID")
     private Fornecedor conFornecedor;
 
-    @Column(name = "CON_CELULAR", length = 14)
+    @Column(name = "CON_CELULAR", length = 16)
     private String conCelular;
 
-    @Column(name = "CON_TELEFONE_COMERCIAL", length = 14)
+    @Column(name = "CON_TELEFONE_COMERCIAL", length = 16)
     private String conTelefoneComercial;
 
     @Column(length = 55, name = "CON_EMAIL")

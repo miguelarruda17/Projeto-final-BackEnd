@@ -16,10 +16,10 @@ public class FornecedorDTO {
     private String conTelefoneComercial;
     private String conEmail;
     //ENDEREÇO
-    private String endRua;
-    private String endNumero;
-    private String endCidade;
     private String endCep;
+    private String endNumero;
+    private String endRua;
+    private String endCidade;
     private String endEstado;
 
     //CONSTRUTOR VAZIO//
