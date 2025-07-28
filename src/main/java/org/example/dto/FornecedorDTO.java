@@ -25,9 +25,8 @@ public class FornecedorDTO {
     //CONSTRUTOR VAZIO//
     public FornecedorDTO() {  }
 
+
     //SETTERS e GETTER//
-
-
     public Long getForId() {
         return forId;
     }
