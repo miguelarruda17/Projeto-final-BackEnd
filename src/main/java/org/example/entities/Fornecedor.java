@@ -94,15 +94,16 @@ public class Fornecedor implements Serializable {
         return Contatos;
     }
 
-    public void setForContatos(List<Contato> Contatos) {
-        this.Contatos = Contatos;
+    public void setContatos(List<Contato> contatos) {
+        Contatos = contatos;
     }
 
     public List<Endereco> getEnderecos() {
         return Enderecos;
     }
 
-    public void setForEnderecos(List<Endereco> Enderecos) {
-        this.Enderecos = Enderecos;
+    public void setEnderecos(List<Endereco> enderecos) {
+        Enderecos = enderecos;
     }
+
 }

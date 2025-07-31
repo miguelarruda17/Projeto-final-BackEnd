@@ -20,7 +20,7 @@ public class Contato implements Serializable {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "CON_FO_ID")
+    @JoinColumn(name = "CON_FOR_ID")
     private Fornecedor conFornecedor;
 
     @Column(name = "CON_CELULAR", length = 16)

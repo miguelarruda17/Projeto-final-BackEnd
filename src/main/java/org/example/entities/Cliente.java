@@ -82,4 +82,5 @@ public class Cliente implements Serializable {
     public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
+
 }
