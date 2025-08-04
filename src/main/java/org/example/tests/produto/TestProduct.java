@@ -5,7 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
-from selenium.WebDriver.support import expected_conditions as EC
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestProduct {
     public static void main(String[] args) {
@@ -21,8 +26,17 @@ public class TestProduct {
         driver.findElement(By.xpath("//*[@id=\"mat-input-4\"]")).sendKeys("Bebidas");
         driver.findElement(By.xpath("//*[@id=\"mat-input-5\"]")).sendKeys("123423423");
 
-        campo_expandivel = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.xpath("//*[@id=\"mat-select-value-1\"]/span"))));
-        campo_expandivel.click();
+        // 1. Clica para abrir o dropdown
+       // WebElement menu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"mat-select-value-1\"]/span")));
+        //menu.click();
+
+        // 2. Espera e clica na opção desejada
+        //WebElement opcao = wait.until(ExpectedConditions.elementToBeClickable(
+          //      By.xpath("//li[text()='Eletrônicos']")));
+        //opcao.click();
+
+        //driver.quit();
+
         driver.findElement(By.xpath("//*[@id=\"mat-option-5\"]/span")).click();
 
         driver.findElement(By.xpath("//*[@id=\"mat-option-8\"]")).click();

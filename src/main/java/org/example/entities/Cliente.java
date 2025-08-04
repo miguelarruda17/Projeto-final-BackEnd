@@ -23,7 +23,6 @@ public class Cliente implements Serializable {
     private String cliNome;
 
     @NotBlank(message = "CPF é obrigatório.")
-    @CPF(message = "CPF inválido.")
     @Size(max = 15, message = "CPF deve ter no máximo 11 caracteres")
     @Column(name = "CLI_CPF", nullable = false, unique = true,length = 15)
     private String cliCpf;
