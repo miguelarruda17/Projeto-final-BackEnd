@@ -1,9 +1,11 @@
 package org.example.services;
 
 import org.example.dto.ClienteDTO;
+import org.example.dto.FornecedorDTO;
 import org.example.entities.Cliente;
 import org.example.entities.Contato;
 import org.example.entities.Endereco;
+import org.example.entities.Fornecedor;
 import org.example.repositories.ClienteRepository;
 import org.example.repositories.ContatoRepository;
 import org.example.repositories.EnderecoRepository;
@@ -14,9 +16,9 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.Callable;
 
 @Service
 public class ClienteService {
@@ -39,20 +41,11 @@ public class ClienteService {
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
-    public Cliente insert(Cliente obj) {
+    public Cliente insert(ClienteDTO obj) {
 
-        try {
+        Cliente cliente = fromDTO(obj);
+        return clienteRepository.save(cliente);
 
-            obj.setCliId(null);
-            obj = clienteRepository.save(obj);
-            contatoRepository.saveAll(obj.getContatos());
-            enderecoRepository.saveAll(obj.getEnderecos());
-
-            return obj;
-        } catch (DataIntegrityViolationException e) {
-
-          throw new ValueBigForAtributeException(e.getMessage());
-        }
     }
 
     public Cliente update(Long id, ClienteDTO objDTO) {

@@ -2,8 +2,10 @@ package org.example.resources;
 
 import org.example.dto.ClienteDTO;
 import org.example.entities.Cliente;
+import org.example.entities.Fornecedor;
 import org.example.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -37,12 +39,11 @@ public class ClienteResource {
     }
 
     @PostMapping
-    public ResponseEntity<Void> insert(@Valid @RequestBody ClienteDTO objDto){
-        Cliente obj = service.fromDTO(objDto);
-        obj = service.insert(obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(obj.getCliId()).toUri();
-        return ResponseEntity.created(uri).build();
+    public ResponseEntity<Cliente> insert(@RequestBody @Valid ClienteDTO objDto){
+
+        Cliente createdCliente = service.insert(objDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdCliente);
+
     }
     @PutMapping(value = "/{id}")
     public ResponseEntity<Void> update(@Valid @RequestBody ClienteDTO objDTO, @PathVariable Long id) {
